@@ -54,39 +54,51 @@ Due to the class imbalance ratio, accuracy using the Area Under the Precision-Re
 ### Without Sampling (Original Imbalanced Dataset)
 - XGBClassifier: 
   - k_accuracy_score: 1.0
-  - precision_score: 0.47580645161290325
-  - recall_score: 0.5175438596491229
+  - precision_score : 0.956989247311828
+  - recall_score : 0.7235772357723578
 
 - LGBMClassifier: 
   - k_accuracy_score: 1.0
-  - precision_score: 0.47540983606557374
-  - recall_score: 0.5087719298245614
+  - precision_score : 0.2049469964664311
+  - recall_score : 0.4715447154471545
 
 ### With Under-Sampling
 - XGBClassifier:
-  - k_accuracy_score: [Insert Value]
-  - precision_score: [Insert Value]
-  - recall_score: [Insert Value]
+  - k_accuracy_score : 1.0
+  - precision_score : 0.47580645161290325
+  - recall_score : 0.5175438596491229
 
 - LGBMClassifier:
-  - k_accuracy_score: [Insert Value]
-  - precision_score: [Insert Value]
-  - recall_score: [Insert Value]
+  - k_accuracy_score : 1.0
+  - precision_score : 0.47540983606557374
+  - recall_score : 0.5087719298245614
 
 ### With Over-Sampling
 - XGBClassifier:
-  - k_accuracy_score: [Insert Value]
-  - precision_score: [Insert Value]
-  - recall_score: [Insert Value]
+  - k_accuracy_score : 1.0
+  - precision_score : 0.9819819819819819
+  - recall_score : 0.956140350877193
 
 - LGBMClassifier:
-  - k_accuracy_score: [Insert Value]
-  - precision_score: [Insert Value]
-  - recall_score: [Insert Value]
+  - k_accuracy_score : 1.0
+  - precision_score : 1.0
+  - recall_score : 0.9473684210526315
 
 ## Conclusion
 
-- Summarize the results obtained with different sampling techniques.
-- Discuss the performance of the classifiers in detecting fraudulent transactions.
-- Provide insights for future improvements or considerations.
+In this credit card fraud detection project, we experimented with different sampling techniques and evaluated the performance of XGBClassifier and LGBMClassifier in detecting fraudulent transactions.
+
+### Without Sampling (Original Imbalanced Dataset)
+- Both XGBClassifier and LGBMClassifier achieved perfect k_accuracy_score (1.0) on the original imbalanced dataset. However, the precision and recall scores varied significantly between the two models. 
+  - XGBClassifier achieved a high precision score (0.957) but a relatively lower recall score (0.724), indicating that while it correctly identifies many fraudulent transactions, it also misclassifies some legitimate transactions as fraudulent.
+  - LGBMClassifier, on the other hand, showed a lower precision score (0.205) but a higher recall score (0.472), suggesting that it identifies a higher proportion of actual fraudulent transactions but also flags a larger number of legitimate transactions incorrectly.
+
+### With Under-Sampling
+- Both XGBClassifier and LGBMClassifier achieved perfect k_accuracy_score (1.0) with under-sampling. The precision and recall scores improved slightly compared to the original imbalanced dataset, but they were still relatively balanced. However, the performance did not surpass that of the models trained on the original imbalanced dataset.
+
+### With Over-Sampling
+- Applying over-sampling techniques significantly improved the performance of both classifiers. Both XGBClassifier and LGBMClassifier achieved perfect k_accuracy_score (1.0), indicating a perfect match between predicted and actual labels. Moreover, the precision and recall scores substantially increased, especially for LGBMClassifier, which achieved a perfect precision score of 1.0 while maintaining a high recall score (0.947).
+
+### Performance Discussion
+- Over-sampling techniques, particularly when applied in conjunction with LGBMClassifier, demonstrated the best performance in detecting fraudulent transactions. These techniques effectively balanced the dataset and improved the precision and recall scores, ensuring a higher detection rate of actual fraud cases while minimizing false positives.
 
